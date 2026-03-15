@@ -33,7 +33,7 @@ const ENTITY_CATEGORY = "Utiles Escolares";
 
 // TODO: Define un código identificador (string)
 // Elige un prefijo coherente con tu dominio
-const ENTITY_CODE = "PAP-015";
+const ENTITY_CODE = "PAP-001";
 
 // TODO: Define una descripción corta (string)
 // Debe contener varias palabras para usar includes/slice
@@ -81,7 +81,7 @@ const DESCRIPTION_IS_RELEVANT = ENTITY_DESCRIPTION.includes("calidad");
 
 // TODO: Verifica si el código termina con los dígitos
 // Usa endsWith() con algo coherente de tu dominio
-const HAS_VALID_SUFFIX = ENTITY_CODE.endsWith("015");
+const HAS_VALID_SUFFIX = ENTITY_CODE.endsWith("001");
 
 // ============================================
 // SECCIÓN 4: Generación de la ficha principal
@@ -121,7 +121,7 @@ console.log("--- Validaciones ---");
 // TODO: Muestra los resultados de las validaciones con template literals
 console.log(`¿Código empieza con '${CODE_PREFIX}'?: ${HAS_VALID_PREFIX}`);
 console.log(`¿Descripción contiene 'calidad'?: ${DESCRIPTION_IS_RELEVANT}`);
-console.log(`¿Código termina con '015'?: ${HAS_VALID_SUFFIX}`);
+console.log(`¿Código termina con '001'?: ${HAS_VALID_SUFFIX}`);
 console.log("");
 
 // ============================================

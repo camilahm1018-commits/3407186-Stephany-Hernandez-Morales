@@ -167,7 +167,7 @@ console.log("");
 
 //COMBINACIÓN
 const GOOD_STORE =
-  IS_FULL_STOCK && (INVENTORY > 600000 || BOOKMARK_PRICE > 20000);
+IS_FULL_STOCK && (INVENTORY > 600000 || BOOKMARK_PRICE > 20000);
 console.log("¿La tienda tiene buen estado de venta?", GOOD_STORE);
 
 // ============================================
