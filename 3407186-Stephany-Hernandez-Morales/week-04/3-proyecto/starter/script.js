@@ -21,29 +21,29 @@
 // ============================================
 
 // TODO: Define el nombre de tu dominio
-const DOMAIN_NAME = "Mi Dominio";
+const DOMAIN_NAME = "E-commerce productos de papelería";
 
 // TODO: Define el nombre de la entidad principal
 // Inclúyelo con espacios y mayúsculas/minúsculas
 // para poder aplicar transformaciones después
-const rawEntityName = "  nombre de la entidad  ";
+const rawEntityName = "  Cuaderno Profesional Cuadriculado  ";
 
 // TODO: Define una categoría o tipo (string)
-const entityCategory = "Categoría del elemento";
+const entityCategory = "Utiles Escolares";
 
 // TODO: Define un código identificador (string)
 // Elige un prefijo coherente con tu dominio
-const entityCode = "COD-001";
+const entityCode = "PAP-015";
 
 // TODO: Define una descripción corta (string)
 // Debe contener varias palabras para usar includes/slice
-const entityDescription = "Descripción interesante de la entidad del dominio asignado.";
+const entityDescription = "Cuaderno profesional ideal para estudiantes y oficina con hojas de alta calidad.";
 
 // TODO: Define un dato numérico relevante (number)
-const mainValue = 0;
+const mainValue = 20_000; //Cantidad de productos
 
 // TODO: Define un estado booleano
-const isActive = true;
+const isActive = true; // indica si el producto está disponible
 
 
 // ============================================
@@ -52,16 +52,20 @@ const isActive = true;
 
 // TODO: Limpia el nombre con trim()
 const entityName = rawEntityName.trim();
+console.log(entityName);
 
 // TODO: Obtén el nombre en mayúsculas para el encabezado
 const entityNameUpper = entityName.toUpperCase();
+console.log(entityNameUpper);
 
 // TODO: Obtén el nombre en minúsculas para el código
 const entityNameLower = entityName.toLowerCase();
+console.log(entityNameLower);
 
 // TODO: Extrae las primeras letras del código con slice()
 // para usarlas como prefijo de referencia
 const codePrefix = entityCode.slice(0, 3);
+console.log(codePrefix);
 
 
 // ============================================
@@ -74,11 +78,12 @@ const hasValidPrefix = entityCode.startsWith(codePrefix);
 
 // TODO: Verifica si la descripción contiene una palabra clave
 // Usa includes() con una palabra importante de tu dominio
-const descriptionIsRelevant = entityDescription.includes("dominio");
+const descriptionIsRelevant = entityDescription.includes("calidad");
 
 // TODO: Verifica si el código termina con los dígitos
 // Usa endsWith() con algo coherente de tu dominio
-const hasValidSuffix = entityCode.endsWith("001");
+const hasValidSuffix = entityCode.endsWith("015");
+
 
 
 // ============================================
@@ -98,7 +103,7 @@ Nombre:      ${entityNameUpper}
 Categoría:   ${entityCategory}
 Código:      ${entityCode}
 Prefijo:     ${codePrefix}
-Valor:       ${mainValue}
+Precio:      $${mainValue.toLocaleString("es-CO")}
 Estado:      ${isActive ? "Activo" : "Inactivo"}
 
 ${subSeparator}
@@ -109,6 +114,7 @@ ${separator}
 
 console.log(mainCard);
 
+//Valor:       ${mainValue}
 
 // ============================================
 // SECCIÓN 5: Validaciones
@@ -117,8 +123,8 @@ console.log(mainCard);
 console.log("--- Validaciones ---");
 // TODO: Muestra los resultados de las validaciones con template literals
 console.log(`¿Código empieza con '${codePrefix}'?: ${hasValidPrefix}`);
-console.log(`¿Descripción contiene 'dominio'?: ${descriptionIsRelevant}`);
-console.log(`¿Código termina con '001'?: ${hasValidSuffix}`);
+console.log(`¿Descripción contiene 'calidad'?: ${descriptionIsRelevant}`);
+console.log(`¿Código termina con '015'?: ${hasValidSuffix}`);
 console.log("");
 
 
@@ -130,6 +136,6 @@ console.log("--- Notificación ---");
 
 // TODO: Construye un mensaje corto de una línea
 // Usa template literal con el nombre limpio y el código
-const notification = `📢 Nuevo elemento disponible: ${entityName} (${entityCode})`;
+const notification = `📢 Nuevo producto disponible: ${entityName} (${entityCode})`;
 console.log(notification);
 console.log("");
