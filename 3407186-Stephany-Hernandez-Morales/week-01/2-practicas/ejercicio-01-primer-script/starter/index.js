@@ -12,7 +12,7 @@ console.log('--- Paso 1: Hola, mundo ---');
 
 // El primer programa en cualquier lenguaje de programación
 // Descomenta la siguiente línea:
-// console.log('¡Hola, mundo!');
+console.log('¡Hola, mundo!');
 
 console.log('');
 
@@ -23,9 +23,9 @@ console.log('--- Paso 2: Mostrar texto ---');
 
 // Un string puede ser cualquier texto entre comillas
 // Descomenta las siguientes líneas:
-// console.log('Estoy aprendiendo JavaScript');
-// console.log("También funciona con comillas dobles");
-// console.log('Mi nombre es [tu nombre aquí]');
+console.log('Estoy aprendiendo JavaScript');
+console.log("También funciona con comillas dobles");
+console.log('Mi nombre es [tu nombre aquí]');
 
 console.log('');
 
@@ -36,10 +36,10 @@ console.log('--- Paso 3: Mostrar números ---');
 
 // Los números NO llevan comillas
 // Descomenta las siguientes líneas:
-// console.log(42);
-// console.log(3.14);
-// console.log(-10);
-// console.log(2026);
+console.log(42);
+console.log(3.14);
+console.log(-10);
+console.log(2026);
 
 console.log('');
 
@@ -50,8 +50,8 @@ console.log('--- Paso 4: Mostrar booleans ---');
 
 // Solo dos valores posibles: true o false — sin comillas
 // Descomenta las siguientes líneas:
-// console.log(true);
-// console.log(false);
+console.log(true);
+console.log(false);
 
 console.log('');
 
@@ -62,10 +62,10 @@ console.log('--- Paso 5: Salida organizada ---');
 
 // Los separadores hacen la salida más legible
 // Descomenta las siguientes líneas:
-// console.log('============================');
-// console.log('   MI PRIMERA CONSOLA JS    ');
-// console.log('============================');
-// console.log('Texto:   ¡Hola, mundo!');
-// console.log('Número:  42');
-// console.log('Boolean: true');
-// console.log('============================');
+console.log('============================');
+console.log('   MI PRIMERA CONSOLA JS    ');
+console.log('============================');
+console.log('Texto:   ¡Hola, mundo!');
+console.log('Número:  42');
+console.log('Boolean: true');
+console.log('============================');

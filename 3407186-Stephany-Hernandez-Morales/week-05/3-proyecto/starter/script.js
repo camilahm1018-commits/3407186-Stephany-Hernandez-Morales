@@ -20,28 +20,35 @@
 // - Un libro, medicamento, miembro, estudiante, producto, etc.
 // - Incluye: nombre, estado, valor numérico, tipo (string), y alguna propiedad opcional
 
-const elementName = null;           // TODO: nombre del elemento (string)
-const elementStatus = null;         // TODO: estado actual (string: "active", "inactive", etc.)
-const elementValue = null;          // TODO: valor numérico para clasificar (ocupación, stock, puntaje…)
-const elementType = null;           // TODO: tipo o categoría (string)
-const elementInfo = null;           // TODO: objeto con información adicional opcional (puede ser null)
+const elementName = "Archivador de palanca";      // TODO: nombre del elemento (string)
+const elementStatus = "active";                     // TODO: estado actual (string: "active", "inactive", etc.)
+const elementValue = 70;                            // TODO: valor numérico para clasificar (ocupación, stock, puntaje…)
+const elementType = "Archivo y documentación";      // TODO: tipo o categoría (string)
+const elementInfo ={                                // TODO: objeto con información adicional opcional (puede ser null)
+    price: 15000,
+    discount: null
+
+}; 
+
 
 // ============================================
 // SECCIÓN 2: Clasificación con if / else if / else
 // ============================================
 
 // TODO: Clasifica el elemento en al menos 3 niveles según elementValue.
-// Ejemplo de estructura:
-// let classification;
-// if (elementValue >= ...) {
-//   classification = "...";
-// } else if (elementValue >= ...) {
-//   classification = "...";
-// } else {
-//   classification = "...";
-// }
+
 
 let classification = "Sin clasificar"; // TODO: implementar if/else if/else
+    if (elementValue >= 100) {
+        classification = "Alto";        
+    } else if (elementValue >= 50) {
+        classification = "Medio";       
+    } else if (elementValue >= 20) {
+        classification = "Bajo";        
+    } else {
+        classification = "Muy bajo";
+    }
+
 
 // ============================================
 // SECCIÓN 3: Estado binario con operador ternario
@@ -50,8 +57,7 @@ let classification = "Sin clasificar"; // TODO: implementar if/else if/else
 // TODO: Usa el ternario para determinar un estado de dos opciones.
 // Ejemplo: const statusLabel = elementStatus === "active" ? "Activo" : "Inactivo";
 
-const statusLabel = ""; // TODO: implementar con ternario
-
+const statusLabel = elementStatus === "active" ? "Activo" : "Inactivo";  // TODO: implementar con ternario
 // ============================================
 // SECCIÓN 4: Tipo con switch
 // ============================================
@@ -66,6 +72,20 @@ const statusLabel = ""; // TODO: implementar con ternario
 
 let typeLabel = "Sin tipo"; // TODO: implementar con switch
 
+switch (elementType) {
+    case "Utiles de oficina":
+        typeLabel = "Utiles de oficina";
+        break;
+    case "Archivo y documentación":
+        typeLabel = "Archivo y documentación";
+        break;
+    case "Tecnología":
+        typeLabel = "Tecnología";
+        break;
+    default:
+        typeLabel = "Tipo desconocido";
+}
+
 // ============================================
 // SECCIÓN 5: Valor por defecto con ??
 // ============================================
@@ -73,8 +93,8 @@ let typeLabel = "Sin tipo"; // TODO: implementar con switch
 // TODO: Usa ?? para obtener un valor de fallback cuando sea null o undefined.
 // Ejemplo: const displayName = elementName ?? "Sin nombre";
 
-const displayName = "";      // TODO: elementName ?? "Sin nombre"
-const infoDetail = "";       // TODO: elementInfo?.detail ?? "Sin información adicional"
+const displayName = elementName ?? "Sin nombre";                                         // TODO: elementName ?? "Sin nombre"
+const infoDetail = elementInfo?.discount?? "Sin descuento";       // TODO: elementInfo?.detail ?? "Sin información adicional"
 
 // ============================================
 // SECCIÓN 6: Acceso seguro con ?.
@@ -83,8 +103,8 @@ const infoDetail = "";       // TODO: elementInfo?.detail ?? "Sin información a
 // TODO: Accede de forma segura a una propiedad de elementInfo.
 // Ejemplo: const location = elementInfo?.location ?? "Ubicación no especificada";
 
-const safeProperty = ""; // TODO: elementInfo?.tuPropiedad ?? "valor por defecto"
-
+const safeProperty = elementInfo?.brand ?? "Marca no especificada"; // TODO: elementInfo?.tuPropiedad ?? "valor por defecto"
+//const priceProperty = elementInfo?.price ?? "Precio no especificado";  //Esto es otro ejemplo con el ?
 // ============================================
 // SECCIÓN 7: Ficha de salida
 // ============================================
@@ -95,10 +115,11 @@ const safeProperty = ""; // TODO: elementInfo?.tuPropiedad ?? "valor por defecto
 console.log("=".repeat(40));
 console.log("FICHA DE CLASIFICACIÓN");
 console.log("=".repeat(40));
-// TODO: console.log(`Nombre: ${displayName}`);
-// TODO: console.log(`Estado: ${statusLabel}`);
-// TODO: console.log(`Clasificación: ${classification}`);
-// TODO: console.log(`Tipo: ${typeLabel}`);
-// TODO: console.log(`Detalle: ${infoDetail}`);
-// TODO: console.log(`Propiedad adicional: ${safeProperty}`);
+console.log(`Nombre: ${displayName}`);
+console.log(`Estado: ${statusLabel}`);
+console.log(`Clasificación: ${classification}`);
+console.log(`Tipo: ${typeLabel}`);
+console.log(`Detalle: ${infoDetail}`);
+console.log(`Propiedad adicional: ${safeProperty}`);
+//console.log(`Propiedad adicional: ${priceProperty}`);
 console.log("=".repeat(40));
