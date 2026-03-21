@@ -13,7 +13,7 @@
 // ============================================
 // SECCIÓN 1: Datos del dominio
 // ============================================
-// Cada objeto representa un elemento de tu dominio.
+// Cada objeto representa un elemento de tu dominio.!
 // Adapta las propiedades según tu contexto.
 //
 // NOTA PARA EL APRENDIZ:
@@ -28,18 +28,28 @@
 // (ej: books, medicines, machines, dishes, patients...)
 const items = [
   // TODO: Agrega tus elementos aquí
-  // { name: "nombre del elemento", category: "categoría", value: 0 }
+  { name: "Cuaderno Profesional", category: "Utiles Escolares", value: 100 },
+  { name: "Cinta Doble Cara", category: "Adhesivos", value: 50 },
+  { name: "Boligrafo", category: "Escritura", value: 79 },
+  { name: "Lienzo", category: "Arte y Dibujo", value: 40 },
+  { name: "Folder", category: "Artículos de oficina", value: 30 },
+  { name: "Papel Kraft", category: "Papeles y Cartulinas", value: 16 },
 ];
 
 // TODO: Define las categorías relevantes para tu dominio
 // (ej: para Biblioteca sería ["ficción", "no-ficción", "ciencia"])
-const categories = [
-  // TODO: lista tus categorías
+const categories = [// TODO: lista tus categorías
+  "Utiles Escolares",
+  "Adhesivos",
+  "Escritura",
+  "Arte y Dibujo",
+  "Artículos de oficina",
+  "Papeles y Cartulinas",
 ];
 
 // TODO: Define un nombre descriptivo para el valor numérico
 // (ej: "páginas", "stock", "horas de uso", "precio", "duración")
-const valueLabel = "valor"; // ← cambiar
+const valueLabel = "stock"; // ← cambiar
 
 // ============================================
 // SECCIÓN 2: Listado completo con for...of
@@ -52,9 +62,8 @@ console.log("=== LISTADO COMPLETO ===");
 let lineNumber = 0;
 
 for (const item of items) {
-  lineNumber++;
-  // TODO: Reemplaza este console.log con la información de tu dominio
-  console.log(`${lineNumber}. ${item.name}`);
+  lineNumber++;// TODO: Reemplaza este console.log con la información de tu dominio
+  console.log(`${lineNumber}. ${item.name} — ${item.category} — ${valueLabel}: ${item.value}`);
 }
 
 console.log("");
