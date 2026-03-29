@@ -12,7 +12,7 @@ Construir una **librería de funciones reutilizables** aplicada a tu dominio asi
 
 ## 📋 Tu Dominio Asignado
 
-**Dominio**: [El instructor te asignará tu dominio al inicio del trimestre]
+**Dominio**: [E-commerce productos de papeleria]
 
 Cada aprendiz trabaja sobre un dominio diferente para garantizar implementaciones originales.
 
@@ -94,3 +94,23 @@ Un reporte final que recorre los datos con un bucle `for...of` y usa las funcion
 1. `starter/script.js` con todos los TODOs implementados
 2. El script debe ejecutarse con `node script.js` sin errores
 3. Comentarios en español explicando cada sección
+
+## Resultado total
+
+```
+═════════════════════════════════════════════
+   REPORTE — E-commerce Productos de papelería
+═════════════════════════════════════════════
+
+📋 Listado:
+  1. Producto: Cuaderno A5 [Cuadernos] — Precio: $3000
+  2. Producto: Lápiz HB [Utiles escolares] — Precio: $1500
+  3. Producto: Pinturas [Arte y diseño] — Precio: $5000
+  4. Producto: Regla 30cm [Utiles escolares] — Precio: $2000
+  5. Producto: Calculadora científica [Electrónica] — Precio: $25000
+
+✅ Elementos válidos: 5 / 5
+Total precio: $ 221550
+
+═════════════════════════════════════════════
+```
