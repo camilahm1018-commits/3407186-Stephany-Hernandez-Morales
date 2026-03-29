@@ -12,7 +12,7 @@ Aplicar todos los métodos de arrays vistos en la semana para construir un scrip
 
 ## 📋 Tu Dominio Asignado
 
-**Dominio**: [El instructor te asignará tu dominio al inicio del trimestre]
+**Dominio**: [E-commerce productos de papeleria]
 
 Ejemplos de adaptación:
 
@@ -109,3 +109,68 @@ node starter/script.js
 | **Total**                                  | **60 pts** |
 
 > Ver `rubrica-evaluacion.md` para el detalle completo de la evaluación.
+
+## Resultado total
+```
+==================================================
+📦 GESTIÓN DE E-COMMERCE PRODUCTOS DE PAPELERIA
+==================================================
+
+📋 Inventario inicial (7 Productos):
+  [1] Cuaderno de musica — Precio: $4000 — Stock: 6
+  [2] Boligraos — Precio: $1000 — Stock: 4
+  [3] Cartulina — Precio: $300 — Stock: 10
+  [4] Cinta adhesiva — Precio: $5000 — Stock: 24
+  [5] Post-it — Precio: $5000 — Stock: 19
+  [6] Sticky notes — Precio: $3000 — Stock: 15
+  [7] Marcadores — Precio: $2000 — Stock: 8
+
+--- Operaciones de mutación ---
+
+Agregado: Grapadora
+Elemento prioritario agregado: Marcador Permanente
+Eliminado: Cartulina
+Eliminado: Grapadora
+
+--- Inventario después de mutaciones ---
+
+  [9] Marcador Permanente — Precio: $10000 — Stock: 5
+  [1] Cuaderno de musica — Precio: $4000 — Stock: 6
+  [2] Boligraos — Precio: $1000 — Stock: 4
+  [4] Cinta adhesiva — Precio: $5000 — Stock: 24
+  [5] Post-it — Precio: $5000 — Stock: 19
+  [6] Sticky notes — Precio: $3000 — Stock: 15
+  [7] Marcadores — Precio: $2000 — Stock: 8
+
+--- Búsqueda y filtrado ---
+
+Encontrado: [5] Post-it — Precio: $5000 — Stock: 19
+Activos: 7
+Snapshot original: 8
+Snapshot extendido: 8
+
+--- Transformación con map ---
+
+Nombres de los productos:
+  - Marcador Permanente
+  - Cuaderno de musica
+  - Boligraos
+  - Cinta adhesiva
+  - Post-it
+  - Sticky notes
+  - Marcadores
+
+ Precios con 10% de descuento:
+Marcador Permanente: $9000
+Cuaderno de musica: $3600
+Boligraos: $900
+Cinta adhesiva: $4500
+Post-it: $4500
+Sticky notes: $2700
+Marcadores: $1800
+
+--- Resumen final ---
+
+Total en inventario: 7 Productos
+Activos: 7 | Inactivos: 0
+```
