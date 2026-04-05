@@ -17,8 +17,8 @@
 // ============================================
 
 // TODO: Renombrar con el nombre de tu dominio (en inglés, UPPER_SNAKE_CASE)
-const DOMAIN_NAME = "Mi Aplicación";
-const VALUE_LABEL = "elementos";
+const DOMAIN_NAME = "E_COMMERCE_PRODUCTOS_DE_PAPELERIA";
+const VALUE_LABEL = "Products";
 
 // TODO: Ajustar al límite razonable para tu dominio
 // Usa separadores numéricos (ES2021): 1_000, 10_000
@@ -46,26 +46,71 @@ const items = [
   // TODO: Reemplazar con objetos de tu dominio
   {
     id: 1,
-    name: "Elemento 1",
-    value: 100,
+    name: "Regla 30cm",
+    price: 2_000,
+    stock: 15,
     active: true,
-    category: "tipo-a",
+    category: "Utiles escolares",
   },
   {
     id: 2,
-    name: "Elemento 2",
-    value: 200,
+    name: "Cuaderno A2",
+    price: 4_000,
+    stock: 25,
     active: true,
-    category: "tipo-b",
-    notes: "Propiedad opcional de ejemplo",
+    category: "Utiles escolares",
+    brand: "Norma",
   },
   {
     id: 3,
-    name: "Elemento 3",
-    value: 150,
-    active: false,
-    category: "tipo-a",
+    name: "Colbon",
+    price: 5_000,
+    stock: 10,
+    active: true,
+    category: "Material de arte",
   },
+  {
+    id: 4,
+    name: "Lápiz Grafito",
+    price: 1_000,
+    stock: 50,
+    active: true,
+    category: "Escritura",
+    brand: "Faber-Castell",
+  },
+  {
+    id: 5,
+    name: "Borrador",
+    price: 800,
+    stock: 30,
+    active: true,
+    category: "Utiles escolares",
+  },
+  {
+    id: 6,
+    name: "Resma de papel bond",
+    price: 15_000,
+    stock: 0,
+    active: false,
+    category: "Papelería",
+  },
+  {
+    id: 7,
+    name: "Archivadores",
+    price: 20_000,
+    stock: 30,
+    active: true,
+    category: "Organizacion y archivo",
+  },
+  {
+    id: 8,
+    name: "Carpeta legajadora",
+    price: 4_000,
+    stock: 17,
+    active: true,
+    category: "Organizacion y archivo",
+  },
+
   // TODO: Agregar al menos 3 objetos más (mínimo 6 en total)
 ];
 
@@ -82,6 +127,13 @@ const addItem = (item) => {
   // 1. Verificar que no supere MAX_ITEMS (usar items.length)
   // 2. Agregar el item al array con .push()
   // 3. Mostrar confirmación con console.log y template literal
+
+  if (items.length >= MAX_ITEMS) {
+    console.log("No se pueden agregar más productos");
+    return;
+  }
+  items.push(item);
+  console.log(`Producto agregado: ${item.name}`);
 };
 
 /**
@@ -91,7 +143,7 @@ const addItem = (item) => {
  */
 const findById = (id) => {
   // TODO: Implementar usando .find()
-  return null;
+  return items.find(item => item.id === id);
 };
 
 /**
@@ -100,7 +152,7 @@ const findById = (id) => {
  */
 const getActive = () => {
   // TODO: Implementar usando .filter() con la propiedad booleana
-  return [];
+  return items.filter(item => item.active === true);
 };
 
 /**
@@ -111,7 +163,7 @@ const getActive = () => {
  */
 const filterByField = (field, value) => {
   // TODO: Implementar usando .filter()
-  return [];
+  return items.filter(item => item[field] === value);
 };
 
 // ============================================
@@ -129,7 +181,10 @@ const updateItem = (id, changes) => {
   // 1. Usar .map() para crear un nuevo array
   // 2. Para el item con el id buscado: retornar { ...item, ...changes }
   // 3. Para los demás: retornar el item sin cambios
-  return items.map((item) => item); // reemplazar esta línea
+  return items.map(item => 
+    item.id === id ? { ...item, ...changes } : item);
+  
+  // reemplazar esta línea
 };
 
 /**
@@ -140,9 +195,14 @@ const updateItem = (id, changes) => {
 const calculateStats = (field) => {
   // TODO: Implementar
   // 1. Extraer los valores numéricos con Object.values o .map()
+    const values = items.map(item => item[field]);
   // 2. Calcular: min (Math.min), max (Math.max), avg (sum/length), total (sum)
+  const total = values.reduce((acc, val) => acc + val, 0);
+  const avg = total / values.length;
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  return { min, max, avg, total };
   // Pista: const values = items.map(i => i[field]);
-  return { min: 0, max: 0, avg: 0, total: 0 };
 };
 
 // ============================================
@@ -156,27 +216,53 @@ const calculateStats = (field) => {
  */
 const formatItem = (item) => {
   // TODO: Implementar usando template literals
+  
   // 1. Usar .padEnd() o .padStart() para alinear columnas
   // 2. Usar ?? y ?. para propiedades opcionales
   // 3. Retornar string (NO hacer console.log aquí)
-  return `[${item.id}] ${item.name}`;
+
+  return `[${item.id}] ${item.name.padEnd(20)} | $${String(item.price).padStart(6)} | Stock: ${(item.stock ?? 0).toString().padStart(3)} | ${item.active ? "ACTIVO" : "INACTIVO"} | Marca: ${item.brand ?? "N/A"}`;
 };
 
 /**
  * Genera el reporte completo del dominio
  * Usa: Object.entries, forEach, filter, map, calculateStats
  */
+
+// TODO: Implementar
 const buildReport = () => {
-  // TODO: Implementar
   // 1. Cabecera: título del dominio con template literal
-  // 2. Listado completo usando formatItem + forEach
-  // 3. Sección de activos vs inactivos (getActive)
-  // 4. Estadísticas con calculateStats para la propiedad numérica
-  // 5. Propiedades del primer elemento con Object.entries
-  // 6. Pie de reporte con conteo total
+  console.log("\n" + "=".repeat(40));
   console.log(`Reporte de ${DOMAIN_NAME}`);
   console.log("=".repeat(40));
-  items.forEach((item) => console.log(formatItem(item)));
+
+  // 2. Listado completo usando formatItem + forEach
+  items.forEach(item => console.log(formatItem(item)));
+
+  // 3. Sección de activos vs inactivos (getActive)
+  const active = getActive();
+  console.log("\nResumen de estado:");
+  console.log(`  Activos: ${active.length}`);
+  console.log(`  Inactivos: ${items.length - active.length}`);
+
+  // 4. Estadísticas con calculateStats para la propiedad numérica
+  const stats = calculateStats("price");
+
+  console.log("\nEstadísticas:");
+  console.log(`  Total: $${stats.total}`);
+  console.log(`  Min: $${stats.min}`);
+  console.log(`  Max: $${stats.max}`);
+  console.log(`  Promedio: $${stats.avg.toFixed(2)}`);
+
+  // 5. Propiedades del primer elemento con Object.entries
+  console.log("\nPropiedades del primer producto:");
+  Object.entries(items[0]).forEach(([key, value]) => {
+    console.log(`  ${key}: ${value}`);
+  });
+
+  // 6. Pie de reporte con conteo total
+  console.log("\nTotal productos:", items.length);
+  console.log("=".repeat(40));
 };
 
 // ============================================
@@ -185,7 +271,6 @@ const buildReport = () => {
 //
 // TODO: Descomentar a medida que implementes cada función
 //
-
 console.log("=".repeat(40));
 console.log(`  ${DOMAIN_NAME.toUpperCase()}`);
 console.log("=".repeat(40));
@@ -193,33 +278,58 @@ console.log(`Total de ${VALUE_LABEL}: ${items.length} / ${MAX_ITEMS}`);
 console.log("");
 
 // Paso 1: Buscar por id
-// const found = findById(1);
-// console.log("Encontrado id=1:", found?.name ?? "no encontrado");
-// console.log("");
+const found = findById(1);
+console.log("Encontrado id=1:", found?.name ?? "no encontrado");
+console.log("");
 
 // Paso 2: Listar activos
-// const active = getActive();
-// console.log(`Activos: ${active.length}`);
-// active.forEach(item => console.log(" ", formatItem(item)));
-// console.log("");
+const active = getActive();
+console.log(`Activos: ${active.length}`);
+active.forEach(item => console.log(" ", formatItem(item)));
+console.log("");
 
 // Paso 3: Filtrar por campo
-// const filtered = filterByField("category", "tipo-a");
-// console.log(`Filtro category=tipo-a: ${filtered.length} resultados`);
-// console.log("");
+const filtered = filterByField("category", "Utiles escolares");
+console.log(`Filtro category: ${filtered.length} resultados`);
+filtered.forEach(item => console.log(" ", formatItem(item)));
+console.log("");
 
 // Paso 4: Actualizar con spread
-// const updated = updateItem(1, { value: 999 });
-// console.log(`Actualizado id=1: value=${updated.find(i => i.id === 1)?.value}`);
-// console.log("");
+const updated = updateItem(1, { price: 3_000 });
+console.log(`Actualizado id=1: price=${updated.find(i => i.id === 1)?.price}`);
+console.log("");
 
 // Paso 5: Estadísticas
-// const stats = calculateStats("value");
-// console.log(`Estadísticas (value): min=${stats.min} max=${stats.max} avg=${stats.avg.toFixed(2)}`);
-// console.log("");
+const stats = calculateStats("price");
+console.log(`Estadísticas (price): min=${stats.min} max=${stats.max} avg=${stats.avg.toFixed(2)}`);
+console.log("");
 
 // Paso 6: Reporte completo
-// buildReport();
+buildReport();
 
 // TODO: Agregar un nuevo elemento usando addItem
-// addItem({ id: 7, name: "Nuevo elemento", value: 300, active: true, category: "tipo-a" });
+addItem({ id: 9, name: "Marcador magico", price: 3_000, stock:30 , active: true, category: "Material de arte", brand: "Norma" });
+
+// Paso 6: Reporte completo
+buildReport();
+
+// TODO: Agregar un nuevo elemento usando addItem
+addItem({ id: 9, name: "Marcador magico", price: 3_000, stock:30 , active: true, category: "Material de arte", brand: "Norma" });
+
+
+//seccion agregada rubrica
+
+console.log("\nObject.keys del primer producto:");
+console.log(Object.keys(items[0]));
+
+console.log("\nObject.values del primer producto:");
+console.log(Object.values(items[0]));
+
+console.log("\nObject.hasOwn:");
+console.log(`¿Tiene brand? ${Object.hasOwn(items[0], "brand")}`);
+console.log(`¿Tiene stock? ${Object.hasOwn(items[0], "stock")}`);
+
+const sortedByPrice = [...items].sort((a, b) => a.price - b.price);
+
+console.log("\nProductos ordenados por precio (ASC):");
+sortedByPrice.forEach(item => console.log(`  ${formatItem(item)}`));

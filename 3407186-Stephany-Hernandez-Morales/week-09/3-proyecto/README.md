@@ -12,7 +12,10 @@ Implementar un **catálogo por consola** que use todos los conceptos de objetos 
 
 ## 🏛️ Tu Dominio Asignado
 
-> **Dominio**: _El instructor te asignará tu dominio al inicio del trimestre._
+> **Dominio**: [E-commerce productos de papeleria]
+
+
+_El instructor te asignará tu dominio al inicio del trimestre._
 
 Tu catálogo debe representar una colección de elementos coherente con tu dominio. Por ejemplo:
 
